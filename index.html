@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二氧化碳浸製法（Carbonic Maceration）</title>
+<style>
+  :root {
+    --wine-dark: #4A0E17;
+    --wine-primary: #722F37;
+    --wine-light: #F9EBEE;
+    --coffee-dark: #3B2314;
+    --coffee-primary: #6F4E37;
+    --coffee-light: #F7F1EB;
+    --accent-gold: #C59B27;
+    --text-main: #2C2C2C;
+    --text-muted: #5A5A5A;
+    --bg-page: #F6F5F3;
+    --card-bg: #FFFFFF;
+    --border-color: #E2DCD8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding: 30px 15px 60px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 38px 24px;
+    background: linear-gradient(135deg, var(--wine-dark), var(--wine-primary));
+    color: #FFF;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(114, 47, 55, 0.22);
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  header p {
+    font-size: 1.05rem;
+    opacity: 0.92;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* Chapter Navigation Bar */
+  .toc-nav {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .toc-title {
+    font-size: 0.92rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .toc-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .toc-links a {
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--wine-primary);
+    background: var(--wine-light);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc-links a:hover {
+    background: var(--wine-primary);
+    color: #FFF;
+    transform: translateY(-1px);
+  }
+
+  .toc-links a.coffee-link {
+    color: var(--coffee-primary);
+    background: var(--coffee-light);
+  }
+
+  .toc-links a.coffee-link:hover {
+    background: var(--coffee-primary);
+    color: #FFF;
+  }
+
+  .section-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    border: 1px solid var(--border-color);
+    scroll-margin-top: 24px;
+  }
+
+  .section-card.coffee-theme {
+    border-top: 5px solid var(--coffee-primary);
+    background: linear-gradient(to bottom, #FFFFFF, #FCF9F6);
+  }
+
+  .section-title {
+    font-size: 1.38rem;
+    color: var(--wine-primary);
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border-left: 5px solid var(--wine-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .coffee-theme .section-title {
+    color: var(--coffee-primary);
+    border-left-color: var(--coffee-primary);
+  }
+
+  .badge {
+    font-size: 0.82rem;
+    background: var(--wine-light);
+    color: var(--wine-primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  .coffee-theme .badge {
+    background: var(--coffee-light);
+    color: var(--coffee-primary);
+  }
+
+  p {
+    margin-bottom: 15px;
+  }
+
+  .highlight {
+    font-weight: bold;
+    color: var(--wine-primary);
+  }
+
+  .coffee-highlight {
+    font-weight: bold;
+    color: var(--coffee-primary);
+  }
+
+  .chem-formula {
+    display: inline-block;
+    font-family: "Courier New", Courier, monospace;
+    background: #EFECE9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    color: #333;
+    font-weight: bold;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    background-color: #fff;
+  }
+
+  th, td {
+    padding: 13px 15px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+  }
+
+  th {
+    background-color: var(--wine-primary);
+    color: #FFF;
+    font-weight: 600;
+  }
+
+  .coffee-theme th {
+    background-color: var(--coffee-primary);
+  }
+
+  tr:nth-child(even) {
+    background-color: #FAF8F6;
+  }
+
+  /* SVG Diagram Container */
+  .diagram-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: #FCFBFA;
+    border: 1px solid #EAE5E1;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 18px 0;
+  }
+
+  svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Grid Layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 16px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 16px;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .info-box {
+    background: #FAF8F6;
+    border: 1px solid #E8E2DD;
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .info-box:hover {
+    transform: translateY(-2px);
+    border-color: var(--wine-primary);
+  }
+
+  .coffee-theme .info-box:hover {
+    border-color: var(--coffee-primary);
+  }
+
+  .info-box h3 {
+    font-size: 1.08rem;
+    color: var(--wine-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .coffee-theme .info-box h3 {
+    color: var(--coffee-dark);
+  }
+
+  .callout-box {
+    background: var(--wine-light);
+    border-left: 4px solid var(--wine-primary);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin-top: 16px;
+  }
+
+  .callout-box strong {
+    color: var(--wine-dark);
+  }
+
+  .festival-box {
+    background: linear-gradient(135deg, #FFFDF9, var(--wine-light));
+    border: 1.5px solid #E0B8BF;
+    border-left: 6px solid var(--accent-gold);
+    border-radius: 12px;
+    padding: 22px;
+    margin-top: 22px;
+  }
+
+  .festival-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .festival-title {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--wine-dark);
+  }
+
+  .festival-date {
+    background: var(--accent-gold);
+    color: #FFF;
+    font-size: 0.82rem;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .coffee-callout {
+    background: var(--coffee-light);
+    border-left: 4px solid var(--coffee-primary);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin-top: 16px;
+  }
+
+  .coffee-callout strong {
+    color: var(--coffee-dark);
+  }
+
+  /* Ester Cards */
+  .ester-card {
+    background: linear-gradient(to bottom, #FFFFFF, var(--wine-light));
+    border: 1px solid #E5CFD3;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+
+  .ester-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .ester-icon {
+    font-size: 2.1rem;
+    margin-bottom: 8px;
+  }
+
+  .ester-name {
+    font-weight: bold;
+    color: var(--wine-dark);
+    font-size: 1.02rem;
+    margin-bottom: 4px;
+  }
+
+  .ester-en {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+
+  .ester-aroma {
+    display: inline-block;
+    background: var(--wine-primary);
+    color: #FFF;
+    font-size: 0.84rem;
+    padding: 4px 12px;
+    border-radius: 14px;
+  }
+
+  /* Risk & Pairing Badges */
+  .tag-warn {
+    display: inline-block;
+    background: #FFF3E0;
+    color: #E65100;
+    border: 1px solid #FFB74D;
+    font-size: 0.78rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+
+  .tag-region {
+    display: inline-block;
+    background: var(--wine-primary);
+    color: #FFF;
+    font-size: 0.78rem;
+    font-weight: bold;
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  /* 第七節產區地圖與卡片雙向互動樣式 */
+  .region-card {
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .region-card.is-active,
+  .region-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(74, 14, 23, 0.14);
+  }
+
+  .region-card[data-region="beaujolais"].is-active,
+  .region-card[data-region="beaujolais"]:hover {
+    border-color: #722F37;
+    background-color: #FDF6F7;
+  }
+
+  .region-card[data-region="rhone"].is-active,
+  .region-card[data-region="rhone"]:hover {
+    border-color: #7B1FA2;
+    background-color: #FAF4FC;
+  }
+
+  .region-card[data-region="rioja"].is-active,
+  .region-card[data-region="rioja"]:hover {
+    border-color: #B27D00;
+    background-color: #FDF9EE;
+  }
+
+  .map-region-group {
+    cursor: pointer;
+    transition: opacity 0.25s ease;
+  }
+
+  .map-region-group .map-mini-card {
+    transition: transform 0.25s ease, filter 0.25s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .map-region-group .map-card-bg {
+    transition: fill 0.25s ease, stroke-width 0.25s ease;
+  }
+
+  .map-region-group .map-connector {
+    transition: stroke-width 0.25s ease, opacity 0.25s ease;
+  }
+
+  .map-region-group .map-pulse {
+    transition: r 0.25s ease, opacity 0.25s ease;
+  }
+
+  .map-region-group .map-zone {
+    transition: opacity 0.25s ease, stroke-width 0.25s ease;
+  }
+
+  /* 地圖上被 hover 或連動啟動時的視覺變化 */
+  .map-region-group.is-active .map-mini-card,
+  .map-region-group:hover .map-mini-card {
+    transform: translate(-4px, -2px) scale(1.025);
+  }
+
+  .map-region-group[data-region="beaujolais"].is-active .map-card-bg,
+  .map-region-group[data-region="beaujolais"]:hover .map-card-bg {
+    fill: #FDF4F6;
+    stroke-width: 3;
+  }
+
+  .map-region-group[data-region="rhone"].is-active .map-card-bg,
+  .map-region-group[data-region="rhone"]:hover .map-card-bg {
+    fill: #F9F2FC;
+    stroke-width: 3;
+  }
+
+  .map-region-group[data-region="rioja"].is-active .map-card-bg,
+  .map-region-group[data-region="rioja"]:hover .map-card-bg {
+    fill: #FDF8EC;
+    stroke-width: 3;
+  }
+
+  .map-region-group.is-active .map-connector,
+  .map-region-group:hover .map-connector {
+    stroke-width: 3;
+    stroke-dasharray: none;
+  }
+
+  .map-region-group.is-active .map-pulse,
+  .map-region-group:hover .map-pulse {
+    r: 16;
+    opacity: 0.42;
+  }
+
+  .map-region-group.is-active .map-zone,
+  .map-region-group:hover .map-zone {
+    opacity: 0.95;
+    stroke-width: 1.8;
+  }
+
+  /* 當其中一個產區啟動時，適度淡化其他未選中產區以突顯焦點 */
+  svg.has-active-region .map-region-group:not(.is-active) {
+    opacity: 0.5;
+  }
+
+  /* Back to Top Floating Button */
+  #backToTopBtn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--wine-dark), var(--wine-primary));
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(74, 14, 23, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background 0.2s ease;
+    z-index: 999;
+  }
+
+  #backToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #backToTopBtn:hover {
+    background: var(--wine-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 14, 23, 0.45);
+  }
+
+  #backToTopBtn svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 20px;
+    padding: 15px;
+  }
+</style>
+</head>
+<body id="top">
+
+<div class="container">
+
+  <header>
+    <h1>二氧化碳浸製法（Carbonic Maceration, CM）</h1>
+    <p>從宏觀釀造對比、微觀細胞質酵素生化路徑、酒窖實務風控到精品咖啡跨界應用全解析</p>
+  </header>
+
+  <!-- 章節快速導覽列 -->
+  <nav class="toc-nav" aria-label="章節目錄導覽">
+    <div class="toc-title">📑 章節導覽</div>
+    <div class="toc-links">
+      <a href="#sec-1">一、工藝定位與對比</a>
+      <a href="#sec-2">二、雙階段接力演變圖解</a>
+      <a href="#sec-3">三、細胞內生化路徑</a>
+      <a href="#sec-4">四、四大關鍵酵素總覽</a>
+      <a href="#sec-5">五、酯類香氣圖鑑</a>
+      <a href="#sec-6">六、酒窖參數與風險管理</a>
+      <a href="#sec-7">七、經典產區地圖與薄酒萊新酒節</a>
+      <a href="#sec-8" class="coffee-link">八、精品咖啡跨界應用</a>
+    </div>
+  </nav>
+
+  <!-- 第一部分：工藝定位與對比 -->
+  <div id="sec-1" class="section-card">
+    <div class="section-title">
+      <span>一、工藝定位：二氧化碳浸製法 vs 傳統釀造法</span>
+      <span class="badge">核心差異對比</span>
+    </div>
+
+    <p>葡萄酒的風味與結構，很大程度上取決於發酵的起點是在<strong>「完整葡萄的細胞內部」</strong>，還是<strong>「破皮後的果汁與果皮混合物」</strong>中。二氧化碳浸製法最經典的代表是法國薄酒萊新酒（Beaujolais Nouveau），其設計初衷在於極大化鮮活果香、極小化苦澀單寧。</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">比較維度</th>
+          <th style="width: 40%;">二氧化碳浸製法 (Carbonic Maceration)</th>
+          <th style="width: 40%;">傳統紅酒釀造法 (Traditional Fermentation)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>葡萄處理方式</strong></td>
+          <td><strong>整串完整入桶</strong>（不破皮、不去梗，維持物理完整性）</td>
+          <td>須先經過<strong>去梗與破皮</strong>程序，榨出果汁與果皮混合</td>
+        </tr>
+        <tr>
+          <td><strong>發酵起始動力</strong></td>
+          <td><strong>葡萄果肉細胞內的原生酶</strong>（無氧逆境下啟動細胞內發酵）</td>
+          <td><strong>果皮表面白霜的天然酵母</strong>或人工培養酵母菌</td>
+        </tr>
+        <tr>
+          <td><strong>初期發酵環境</strong></td>
+          <td>密閉不鏽鋼槽，注滿 <span class="chem-formula">CO₂</span> 嚴格隔絕氧氣</td>
+          <td>開放或半開放式發酵槽（初期需微量氧氣助酵母繁殖）</td>
+        </tr>
+        <tr>
+          <td><strong>單寧與酸度表現</strong></td>
+          <td>單寧極低、酒色淺亮；蘋果酸被大幅消耗，口感圓潤順口</td>
+          <td>單寧結構豐富、酒色深濃，酸度骨架明顯</td>
+        </tr>
+        <tr>
+          <td><strong>典型香氣特徵</strong></td>
+          <td>濃郁的香蕉水、泡泡糖、草莓軟糖、櫻桃與肉桂果香</td>
+          <td>新鮮黑紅漿果（黑莓、李子），隨陳年發展出皮革、煙草與辛香</td>
+        </tr>
+        <tr>
+          <td><strong>適飲期與陳年</strong></td>
+          <td><strong>年輕即飲</strong>（酯類香氣隨時間易水解，裝瓶後數月內最佳）</td>
+          <td><strong>具備陳年潛力</strong>（視品種與工藝可陳放數年至數十年）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2">
+      <div class="info-box">
+        <h3>🍇 全二氧化碳浸製（Full Carbonic）</h3>
+        <p>將完整、未破皮且不去梗的整串葡萄直接放入密閉發酵槽，並立即人為注入二氧化碳氣體排空氧氣。只要果皮沒有破損、果蒂仍連在梗上，葡萄就能在無氧環境下啟動細胞內發酵，避免果皮外的酵母菌過早介入。</p>
+      </div>
+      <div class="info-box">
+        <h3>⚖️ 半二氧化碳浸製（Semi-Carbonic）</h3>
+        <p>實務上最常見的折衷做法：不額外打入 <span class="chem-formula">CO₂</span>，直接把整串葡萄堆入槽中。底層葡萄被上層重量壓破後，由酵母啟動傳統發酵並產生 <span class="chem-formula">CO₂</span> 往上填滿全槽，使中上層完整葡萄進入二氧化碳浸製狀態，兼顧果香與結構感。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第二部分：雙階段接力演變圖解 -->
+  <div id="sec-2" class="section-card">
+    <div class="section-title">
+      <span>二、二氧化碳浸製法的「雙階段接力」演變</span>
+      <span class="badge">發酵進程圖解</span>
+    </div>
+
+    <p>在純天然狀態下，葡萄果肉內部是無菌的，天然酵母菌主要附著於果皮表面的白霜上。因此二氧化碳浸製法必然經歷<strong>「先由果肉酵素主導、後由果皮酵母接手」</strong>的兩階段演變：</p>
+
+    <div class="diagram-wrapper">
+      <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- 左側背景區塊 -->
+        <rect x="10" y="10" width="400" height="240" rx="12" fill="#F4EFEA" stroke="#D5CBC3" stroke-width="2"/>
+        <text x="210" y="38" font-size="15" font-weight="bold" fill="#722F37" text-anchor="middle">第一階段：細胞內發酵（無酵母介入）</text>
+        
+        <!-- 完整葡萄圓圈 -->
+        <circle cx="110" cy="135" r="65" fill="#8E354A" stroke="#4A0E17" stroke-width="3"/>
+        <circle cx="110" cy="135" r="56" fill="#B55D6D" stroke="#F9EBEE" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="110" y="122" font-size="12" font-weight="bold" fill="#FFF" text-anchor="middle">完整果皮隔絕</text>
+        <text x="110" y="140" font-size="11" fill="#F9EBEE" text-anchor="middle">果肉內部原生酵素</text>
+        <text x="110" y="158" font-size="11" font-weight="bold" fill="#FFE082" text-anchor="middle">糖分 → 1.5~2.5% 酒精</text>
+        <!-- 外部酵母標示 -->
+        <circle cx="52" cy="85" r="6" fill="#C59B27"/>
+        <circle cx="165" cy="90" r="6" fill="#C59B27"/>
+        <circle cx="162" cy="180" r="6" fill="#C59B27"/>
+        <text x="110" y="225" font-size="12" fill="#5A5A5A" text-anchor="middle">外部天然酵母（果皮白霜）被阻隔在外</text>
+
+        <!-- 箭頭 1 -->
+        <path d="M 185 135 L 235 135" stroke="#722F37" stroke-width="3" marker-end="url(#arrow)"/>
+        <text x="210" y="125" font-size="11" font-weight="bold" fill="#722F37" text-anchor="middle">CO₂ 密閉環境</text>
+
+        <!-- 第一階段結果框 -->
+        <rect x="245" y="70" width="150" height="130" rx="8" fill="#FFF" stroke="#8E354A" stroke-width="1.5"/>
+        <text x="320" y="95" font-size="12" font-weight="bold" fill="#4A0E17" text-anchor="middle">關鍵代謝產物</text>
+        <text x="320" y="120" font-size="11" fill="#333" text-anchor="middle">• 消耗 30~50% 蘋果酸</text>
+        <text x="320" y="142" font-size="11" fill="#333" text-anchor="middle">• 爆發生成揮發性酯類</text>
+        <text x="320" y="164" font-size="11" fill="#333" text-anchor="middle">• 單寧極少溶出</text>
+        <text x="320" y="186" font-size="11" font-weight="bold" fill="#C59B27" text-anchor="middle">酒精達 2% 破壞細胞膜</text>
+
+        <!-- 中間轉換大箭頭 -->
+        <path d="M 418 135 L 452 135" stroke="#C59B27" stroke-width="4" marker-end="url(#arrow-gold)"/>
+
+        <!-- 右側區塊 -->
+        <rect x="460" y="10" width="390" height="240" rx="12" fill="#F9EBEE" stroke="#D8B4BA" stroke-width="2"/>
+        <text x="655" y="38" font-size="15" font-weight="bold" fill="#722F37" text-anchor="middle">第二階段：傳統酵母發酵（交棒接手）</text>
+
+        <!-- 破裂葡萄圓圈 -->
+        <path d="M 545 75 A 60 60 0 1 0 585 185" fill="none" stroke="#4A0E17" stroke-width="3" stroke-dasharray="12 6"/>
+        <circle cx="555" cy="135" r="48" fill="#D98A96" opacity="0.6"/>
+        <text x="555" y="125" font-size="12" font-weight="bold" fill="#4A0E17" text-anchor="middle">果皮自然撐破</text>
+        <text x="555" y="145" font-size="11" fill="#4A0E17" text-anchor="middle">果汁流出混合</text>
+        <!-- 酵母進入 -->
+        <circle cx="535" cy="105" r="7" fill="#C59B27"/>
+        <circle cx="575" cy="115" r="7" fill="#C59B27"/>
+        <circle cx="550" cy="160" r="7" fill="#C59B27"/>
+        <text x="555" y="225" font-size="12" fill="#5A5A5A" text-anchor="middle">果皮酵母菌進入果汁全面啟動發酵</text>
+
+        <!-- 箭頭 2 -->
+        <path d="M 620 135 L 665 135" stroke="#722F37" stroke-width="3" marker-end="url(#arrow)"/>
+
+        <!-- 第二階段結果框 -->
+        <rect x="675" y="70" width="160" height="130" rx="8" fill="#FFF" stroke="#722F37" stroke-width="1.5"/>
+        <text x="755" y="95" font-size="12" font-weight="bold" fill="#4A0E17" text-anchor="middle">完成酒精發酵</text>
+        <text x="755" y="120" font-size="11" fill="#333" text-anchor="middle">• 酵母菌主導代謝</text>
+        <text x="755" y="142" font-size="11" fill="#333" text-anchor="middle">• 剩餘糖分轉化為酒精</text>
+        <text x="755" y="164" font-size="11" fill="#333" text-anchor="middle">• 酒精度達 11~13%</text>
+        <text x="755" y="186" font-size="11" font-weight="bold" fill="#722F37" text-anchor="middle">保留鮮活果香與順口度</text>
+
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#722F37"/>
+          </marker>
+          <marker id="arrow-gold" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#C59B27"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 第三部分：細胞質內的酵素生化路徑 -->
+  <div id="sec-3" class="section-card">
+    <div class="section-title">
+      <span>三、細胞內發酵的生化路徑：糖解作用與酒精發酵酵素</span>
+      <span class="badge">細胞質內無氧代謝</span>
+    </div>
+
+    <p>在充滿二氧化碳的缺氧環境下，葡萄細胞無法使用粒線體進行有氧呼吸，只能依靠細胞質（Cytoplasm）內的原生酵素系統，透過<strong>「糖解作用」</strong>抓取微薄能量（2 ATP），並透過<strong>「酒精發酵酵素」</strong>再生輔酶 <span class="chem-formula">NAD⁺</span> 以維持代謝循環：</p>
+
+    <div class="diagram-wrapper">
+      <svg viewBox="0 0 860 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- 細胞質外框 -->
+        <rect x="15" y="15" width="830" height="290" rx="16" fill="#FAF8F6" stroke="#722F37" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="430" y="42" font-size="14" font-weight="bold" fill="#722F37" text-anchor="middle">葡萄果肉細胞質（Cytoplasm）— 無氧逆境緊急代謝路徑</text>
+
+        <!-- 1. 葡萄糖 -->
+        <rect x="40" y="80" width="140" height="65" rx="10" fill="#FFF" stroke="#333" stroke-width="2"/>
+        <text x="110" y="108" font-size="14" font-weight="bold" fill="#2C2C2C" text-anchor="middle">葡萄糖 / 果糖</text>
+        <text x="110" y="130" font-size="12" fill="#5A5A5A" text-anchor="middle">六碳糖 (C₆H₁₂O₆)</text>
+
+        <!-- 箭頭: 糖解作用 -->
+        <path d="M 185 112 L 315 112" stroke="#722F37" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="195" y="65" width="110" height="38" rx="6" fill="#F9EBEE" stroke="#722F37"/>
+        <text x="250" y="81" font-size="11" font-weight="bold" fill="#722F37" text-anchor="middle">第一階段：糖解作用</text>
+        <text x="250" y="96" font-size="10" fill="#4A0E17" text-anchor="middle">己糖激酶 / PFK 催化</text>
+        <text x="250" y="132" font-size="11" font-weight="bold" fill="#2E7D32" text-anchor="middle">+2 ATP (微薄能量)</text>
+
+        <!-- 2. 丙酮酸 (核心樞紐) -->
+        <rect x="325" y="80" width="150" height="65" rx="10" fill="#FFE082" stroke="#C59B27" stroke-width="2.5"/>
+        <text x="400" y="108" font-size="14" font-weight="bold" fill="#4A0E17" text-anchor="middle">2 × 丙酮酸 (Pyruvate)</text>
+        <text x="400" y="130" font-size="12" fill="#4A0E17" text-anchor="middle">三碳關鍵中間產物</text>
+
+        <!-- 蘋果酸支線匯入 -->
+        <rect x="180" y="215" width="145" height="60" rx="10" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+        <text x="252" y="240" font-size="13" font-weight="bold" fill="#1B5E20" text-anchor="middle">液泡中的蘋果酸</text>
+        <text x="252" y="260" font-size="11" fill="#2E7D32" text-anchor="middle">四碳有機酸 (酸度來源)</text>
+
+        <path d="M 330 245 L 400 245 L 400 152" fill="none" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+        <rect x="335" y="180" width="130" height="36" rx="6" fill="#FFF" stroke="#2E7D32"/>
+        <text x="400" y="195" font-size="11" font-weight="bold" fill="#1B5E20" text-anchor="middle">蘋果酸酶 (Malic Enzyme)</text>
+        <text x="400" y="210" font-size="10" fill="#2E7D32" text-anchor="middle">消耗 30~50% 蘋果酸降酸</text>
+
+        <!-- 箭頭: PDC 脫羧 -->
+        <path d="M 480 112 L 605 112" stroke="#722F37" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="490" y="65" width="105" height="38" rx="6" fill="#F9EBEE" stroke="#722F37"/>
+        <text x="542" y="81" font-size="11" font-weight="bold" fill="#722F37" text-anchor="middle">丙酮酸脫羧酶 (PDC)</text>
+        <text x="542" y="96" font-size="10" fill="#4A0E17" text-anchor="middle">切下 1 分子 CO₂</text>
+        <text x="542" y="132" font-size="11" fill="#5A5A5A" text-anchor="middle">釋出 CO₂ 氣體</text>
+
+        <!-- 3. 乙醛 -->
+        <rect x="615" y="80" width="140" height="65" rx="10" fill="#FFF" stroke="#D84315" stroke-width="2"/>
+        <text x="685" y="108" font-size="14" font-weight="bold" fill="#BF360C" text-anchor="middle">乙醛 (Acetaldehyde)</text>
+        <text x="685" y="130" font-size="11" fill="#D84315" text-anchor="middle">二碳有毒中間物 (青蘋果香)</text>
+
+        <!-- 箭頭: ADH 還原 -->
+        <path d="M 685 150 L 685 210" stroke="#722F37" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="550" y="160" width="125" height="38" rx="6" fill="#F9EBEE" stroke="#722F37"/>
+        <text x="612" y="176" font-size="11" font-weight="bold" fill="#722F37" text-anchor="middle">乙醇脫氫酶 (ADH)</text>
+        <text x="612" y="191" font-size="10" fill="#4A0E17" text-anchor="middle">還原乙醛並再生 NAD⁺</text>
+
+        <!-- 4. 乙醇 (酒精) -->
+        <rect x="605" y="218" width="160" height="60" rx="10" fill="#722F37" stroke="#4A0E17" stroke-width="2"/>
+        <text x="685" y="244" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">乙醇 (酒精 Ethanol)</text>
+        <text x="685" y="264" font-size="11" fill="#FFE082" text-anchor="middle">累積至 1.5~2.5% 撐破細胞</text>
+
+        <!-- NAD+ 循環迴圈標示 -->
+        <path d="M 545 180 C 480 180, 480 285, 300 285 C 120 285, 220 150, 250 140" fill="none" stroke="#1565C0" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-blue)"/>
+        <rect x="435" y="272" width="155" height="22" rx="4" fill="#E3F2FD" stroke="#1565C0"/>
+        <text x="512" y="287" font-size="10.5" font-weight="bold" fill="#0D47A1" text-anchor="middle">輔酶循環：NADH → 再生 NAD⁺</text>
+
+        <defs>
+          <marker id="arrow-green" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2E7D32"/>
+          </marker>
+          <marker id="arrow-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#1565C0"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="grid-2">
+      <div class="info-box">
+        <h3>⚡ 為什麼需要兩階段接力？</h3>
+        <p><strong>糖解作用</strong>雖然能產生維持生命的 2 分子 ATP，但會耗盡細胞內的 <span class="chem-formula">NAD⁺</span>（轉變成 <span class="chem-formula">NADH</span>）。如果沒有第二階段的<strong>乙醇脫氫酶（ADH）</strong>把乙醛還原成酒精、順便把 <span class="chem-formula">NADH</span> 變回 <span class="chem-formula">NAD⁺</span>，整個糖解作用就會因為缺乏原料而徹底停擺。</p>
+      </div>
+      <div class="info-box">
+        <h3>🍋 酸度降低的秘密：蘋果酸酶</h3>
+        <p>在缺氧初期，細胞內的<strong>蘋果酸酶（Malic enzyme）</strong>會將液泡裡的蘋果酸（四碳）轉化為丙酮酸（三碳），一起送進 PDC 與 ADH 的酒精發酵路徑。這不僅提供了額外燃料，更直接消滅了高達 30%–50% 的尖銳酸度，造就新酒圓潤順口的口感。</p>
+      </div>
+    </div>
+
+    <div class="callout-box">
+      <strong>生理極限與停止機制：</strong>葡萄細胞的 PDC 和 ADH 屬於「緊急備用系統」，不像釀酒酵母（<em>Saccharomyces cerevisiae</em>）具有極強的酒精耐受度。當細胞質內的乙醇累積到 <span class="highlight">1.5%–2.5%</span> 時，酒精會破壞細胞膜與液泡膜的雙層磷脂結構，導致酵素變性失活、果粒軟化破裂滲出果汁，正式結束細胞內發酵。
+    </div>
+  </div>
+
+  <!-- 第四部分：核心酵素總覽 -->
+  <div id="sec-4" class="section-card">
+    <div class="section-title">
+      <span>四、細胞內發酵四大關鍵酵素總覽</span>
+      <span class="badge">生化機制速查</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 24%;">酵素名稱</th>
+          <th style="width: 20%;">所屬階段</th>
+          <th style="width: 32%;">生化功能</th>
+          <th style="width: 24%;">對葡萄酒的感官影響</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>磷酸果糖激酶 (PFK)</strong></td>
+          <td>第一階段：糖解作用</td>
+          <td>感應缺氧與能量下降，加速分解葡萄糖為丙酮酸（巴斯德效應）</td>
+          <td>啟動無氧代謝，為後續酒精與香氣生成提供原料</td>
+        </tr>
+        <tr>
+          <td><strong>蘋果酸酶 (Malic enzyme)</strong></td>
+          <td>無氧酸度代謝</td>
+          <td>將液泡中的蘋果酸轉化為丙酮酸，併入發酵路徑</td>
+          <td>大幅降低尖銳酸度，讓新酒喝起來更圓潤柔和</td>
+        </tr>
+        <tr>
+          <td><strong>丙酮酸脫羧酶 (PDC)</strong></td>
+          <td>第二階段：酒精發酵</td>
+          <td>切下丙酮酸的一個碳，轉化為乙醛並釋出二氧化碳</td>
+          <td>產生微量乙醛，帶來青蘋果與堅果氣息前驅物</td>
+        </tr>
+        <tr>
+          <td><strong>乙醇脫氫酶 (ADH)</strong></td>
+          <td>第二階段：酒精發酵</td>
+          <td>將乙醛還原為乙醇（酒精），同時再生 <span class="chem-formula">NAD⁺</span> 維持循環</td>
+          <td>累積約 2% 酒精撐破細胞膜，並促進酯類果香合成</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 第五部分：酯類香氣圖鑑與生成時機 -->
+  <div id="sec-5" class="section-card">
+    <div class="section-title">
+      <span>五、無氧代謝的芬芳副產物：酯類（Esters）生成時機與香氣圖鑑</span>
+      <span class="badge">醇類 + 有機酸</span>
+    </div>
+    <p>在化學上，酯類是由「醇類（Alcohols）」與「有機酸／醯基輔酶 A（Acyl-CoA）」經酵素催化結合而成的揮發性化合物。二氧化碳浸製法透過缺氧逼迫葡萄果肉進行細胞內代謝，使酯類在發酵過程中呈現<strong>「雙波段接力爆發」</strong>，賦予薄酒萊新酒標誌性的糖果與熱帶果香（這類酯類結構較不穩定，隨陳年易水解，因此新酒最適合年輕即飲）：</p>
+
+    <!-- 酯類生成三大關鍵時機點 -->
+    <div class="grid-3" style="margin-bottom: 22px;">
+      <div class="info-box" style="border-top: 4px solid #C59B27;">
+        <h3>⏱️ 時機一：細胞內發酵中後期（第 2–5 天）</h3>
+        <p style="margin-bottom: 8px;"><span class="highlight">葡萄果肉原生酵素主導的「第一波爆發」</span></p>
+        <p style="margin-bottom: 0; font-size: 0.94rem;">當細胞質內的<strong>乙醇（酒精）開始累積至 0.5%–1.5%</strong>、且環境溫度維持在 30°C 左右時，葡萄細胞內的<strong>醇醯基轉移酶（AAT）</strong>與酯化酶會被逆境激活，直接利用細胞內產生的乙醇、高級醇與肉桂酸等前驅物，合成出高濃度的<strong>肉桂酸乙酯（草莓糖/肉桂）</strong>與部分乙酸酯類。</p>
+      </div>
+
+      <div class="info-box" style="border-top: 4px solid #722F37;">
+        <h3>⏱️ 時機二：果皮破裂與酵母接手期（第 5–10 天）</h3>
+        <p style="margin-bottom: 8px;"><span class="highlight">酵母菌無氧旺盛發酵的「第二波高峰」</span></p>
+        <p style="margin-bottom: 0; font-size: 0.94rem;">當果粒因酒精達 2% 撐破滲汁、外部天然酵母進入果汁並處於<strong>無氧且高糖分</strong>環境時，酵母菌為了調節細胞內輔酶（<span class="chem-formula">CoA</span>）平衡，會透過 <strong>ATF1 / ATF2 酵素</strong>大量將異戊醇與乙醯輔酶 A 結合，爆發性合成<strong>乙酸異戊酯（香蕉水味）</strong>與<strong>己酸／丁酸乙酯（泡泡糖味）</strong>。</p>
+      </div>
+
+      <div class="info-box" style="border-top: 4px solid #4A0E17;">
+        <h3>⏱️ 時機三：壓榨結束與低溫澄清期（發酵末期）</h3>
+        <p style="margin-bottom: 8px;"><span class="highlight">保留與鎖香的「黃金停損點」</span></p>
+        <p style="margin-bottom: 0; font-size: 0.94rem;">當殘糖發酵完畢、<span class="chem-formula">CO₂</span> 氣泡停止冒出時，酯類濃度達到最高峰。釀酒師必須<strong>立即進行壓榨並降溫（降至 15°C 以下）</strong>——因為若繼續在高溫下浸泡，細胞死後釋出的<strong>酯解酶（Esterase）</strong>與酸性環境會開始反向分解酯類，導致香蕉與糖果香氣迅速流失。</p>
+      </div>
+    </div>
+
+    <div class="callout-box" style="margin-bottom: 22px; margin-top: 0;">
+      <strong>💡 為什麼傳統釀造法很難產生這麼多酯類？</strong><br>
+      關鍵在於<strong>「無氧狀態」與「前驅物累積」</strong>。在傳統開放式發酵中，初期接觸氧氣會抑制酵母菌合成乙酸酯的關鍵基因（<em>ATF1</em>），且缺乏第一階段葡萄果肉細胞自行產生的特殊前驅物（如肉桂酸衍生物）；唯有 CM 的<strong>全程無氧接力</strong>，才能同時疊加「果肉原生酵素酯類」與「酵母無氧發酵酯類」的雙重香氣。
+    </div>
+
+    <div class="grid-4">
+      <div class="ester-card">
+        <div class="ester-icon">🍌</div>
+        <div class="ester-name">乙酸異戊酯</div>
+        <div class="ester-en">Isoamyl acetate</div>
+        <div class="ester-aroma">香蕉水、熟成香蕉</div>
+      </div>
+
+      <div class="ester-card">
+        <div class="ester-icon">🍓</div>
+        <div class="ester-name">肉桂酸乙酯</div>
+        <div class="ester-en">Ethyl cinnamate</div>
+        <div class="ester-aroma">草莓軟糖、肉桂、櫻桃</div>
+      </div>
+
+      <div class="ester-card">
+        <div class="ester-icon">🫧</div>
+        <div class="ester-name">己酸乙酯 / 丁酸乙酯</div>
+        <div class="ester-en">Ethyl hexanoate / butyrate</div>
+        <div class="ester-aroma">泡泡糖、鳳梨、青蘋果</div>
+      </div>
+
+      <div class="ester-card">
+        <div class="ester-icon">🌹</div>
+        <div class="ester-name">乙酸苯乙酯</div>
+        <div class="ester-en">2-Phenylethyl acetate</div>
+        <div class="ester-aroma">玫瑰花香、淡雅蜂蜜</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第六部分：酒窖實務控制參數與風險管理 -->
+  <div id="sec-6" class="section-card">
+    <div class="section-title">
+      <span>六、酒窖實務控制參數與釀造風險管理</span>
+      <span class="badge">釀酒師調音台</span>
+    </div>
+
+    <p>在實際釀造中，二氧化碳浸製法是一把雙面刃。釀酒師必須精準控制溫度、時間與酒液分離比例，同時嚴防無氧高溫環境下的微生物與化學缺陷：</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 22%;">實務控制維度</th>
+          <th style="width: 26%;">典型操作參數</th>
+          <th style="width: 52%;">工藝目的與風味影響</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>發酵槽溫度</strong></td>
+          <td><strong>30°C – 35°C</strong></td>
+          <td>需要較高溫度快速激活果肉原生酵素並促進酯類合成；溫度過低會導致細胞內發酵啟動過慢，使雜菌趁虛而入。</td>
+        </tr>
+        <tr>
+          <td><strong>密閉浸漬天數</strong></td>
+          <td><strong>5 – 15 天</strong><br>（特級村可達 2–3 週）</td>
+          <td>時間越短（5–7 天）果香越奔放、單寧越低；拉長至 2–3 週則會讓果皮與果梗釋出更多結構感、草本與辛香料層次。</td>
+        </tr>
+        <tr>
+          <td><strong>酒液分離與調配</strong></td>
+          <td><strong>自流汁 vs. 壓榨汁</strong></td>
+          <td>先放出不經壓榨的<strong>自流汁（Free-run）</strong>保留最純淨果香，再輕柔壓榨果渣取得富含單寧與深色色素的<strong>壓榨汁（Press wine）</strong>，發酵完畢後依比例調配。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-3">
+      <div class="info-box">
+        <span class="tag-warn">風險 1：揮發性酸飆升 (VA)</span>
+        <h3>指甲油與果醋刺激感</h3>
+        <p>前期通常不添加二氧化硫（<span class="chem-formula">SO₂</span>）且環境溫度高，若槽內氧氣未徹底排空，醋酸菌與乳酸菌易大量繁殖，產生高濃度乙酸與乙酸乙酯（類似<strong>去光水、指甲油或果醋</strong>的刺鼻味）。</p>
+      </div>
+      <div class="info-box">
+        <span class="tag-warn">風險 2：還原味 (Reduction)</span>
+        <h3>臭雞蛋與煮熟高麗菜</h3>
+        <p>在極度缺氧的密閉環境下，酵母菌若缺乏足夠的可同化氮源（YAN），會代謝產生硫化氫（<span class="chem-formula">H₂S</span>），帶來<strong>臭雞蛋、火柴燃燒或煮熟蔬菜</strong>氣味，需透過適度換桶（Racking）引氧消除。</p>
+      </div>
+      <div class="info-box">
+        <span class="tag-warn">風險 3：發酵停滯與殘糖</span>
+        <h3>二次發酵風險</h3>
+        <p>從細胞內發酵切換到酵母菌接力的環境劇變過程中，酵母菌容易在發酵末期營養耗盡而提早休眠，若未嚴密監控比重，容易留下些微殘糖導致裝瓶後二次發酵。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第七部分：世界經典產區地圖、品種、薄酒萊新酒節與侍酒餐搭 -->
+  <div id="sec-7" class="section-card">
+    <div class="section-title">
+      <span>七、世界經典產區地圖、薄酒萊新酒節與侍酒餐搭</span>
+      <span class="badge">從風土文化到餐桌</span>
+    </div>
+
+    <p>二氧化碳浸製法最適合<strong>「果皮薄、單寧低、高酸度、果香奔放」</strong>的紅葡萄品種（若使用果皮厚、生青味重的 Cabernet Sauvignon 做全 CM，反而易萃取出不討喜的草本澀味）。</p>
+
+    <!-- 西歐三大經典產區地理分布地圖 (高擬真地形與水系圖) -->
+    <div class="diagram-wrapper" style="padding: 12px; background: #F4F7F9;">
+      <svg id="europeRegionMap" viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- 海洋漸層 -->
+          <linearGradient id="seaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#DCEBF5"/>
+            <stop offset="55%" stop-color="#E7F1F8"/>
+            <stop offset="100%" stop-color="#D4E6F2"/>
+          </linearGradient>
+          <!-- 陸地暖紙漸層 -->
+          <linearGradient id="landGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FCF9F2"/>
+            <stop offset="65%" stop-color="#F6EFE2"/>
+            <stop offset="100%" stop-color="#EDE2D0"/>
+          </linearGradient>
+          <!-- 鄰國陸地漸層 -->
+          <linearGradient id="neighborGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#F0ECE3"/>
+            <stop offset="100%" stop-color="#E5DFD3"/>
+          </linearGradient>
+          <!-- 山脈陰影柔化 -->
+          <filter id="mountainBlur" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="3.5"/>
+          </filter>
+          <!-- 卡片投影 -->
+          <filter id="cardShadow" x="-5%" y="-5%" width="115%" height="115%">
+            <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#2C3E50" flood-opacity="0.12"/>
+          </filter>
+          <!-- 海岸線外發光 -->
+          <filter id="coastShadow" x="-5%" y="-5%" width="110%" height="110%">
+            <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-color="#5B85A6" flood-opacity="0.22"/>
+          </filter>
+          <!-- 經緯網格 Pattern -->
+          <pattern id="latLonGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#B7CFE0" stroke-width="0.6" stroke-dasharray="2 3"/>
+          </pattern>
+        </defs>
+
+        <!-- 外框與海洋底色 -->
+        <rect x="8" y="8" width="884" height="414" rx="14" fill="url(#seaGrad)" stroke="#BDD1DF" stroke-width="1.8"/>
+        <!-- 經緯度網格疊加 -->
+        <rect x="8" y="8" width="884" height="414" rx="14" fill="url(#latLonGrid)" opacity="0.65"/>
+
+        <!-- 經緯度座標刻度標註 -->
+        <text x="140" y="24" font-size="9.5" fill="#6D8FA8" font-family="monospace">5°W</text>
+        <text x="260" y="24" font-size="9.5" fill="#6D8FA8" font-family="monospace">0° (本初子午線)</text>
+        <text x="415" y="24" font-size="9.5" fill="#6D8FA8" font-family="monospace">5°E</text>
+        <text x="18" y="105" font-size="9.5" fill="#6D8FA8" font-family="monospace">48°N</text>
+        <text x="18" y="215" font-size="9.5" fill="#6D8FA8" font-family="monospace">45°N</text>
+        <text x="18" y="325" font-size="9.5" fill="#6D8FA8" font-family="monospace">42°N</text>
+
+        <!-- 英國南部 (多佛海峽對岸) -->
+        <path d="M 190 8 L 325 8 L 315 24 C 292 31, 268 35, 244 32 C 222 29, 204 20, 190 8 Z"
+              fill="url(#neighborGrad)" stroke="#B8ADA0" stroke-width="1.3"/>
+        <text x="258" y="21" font-size="9" fill="#8C8175" letter-spacing="1" text-anchor="middle">U.K.</text>
+
+        <!-- 鄰國陸地（比利時、德國、瑞士、義大利北部） -->
+        <path d="M 365 36 L 545 36 L 545 335 L 515 330 C 502 315, 488 295, 472 280 C 458 267, 452 252, 462 238 C 470 226, 464 212, 452 202 C 440 192, 444 176, 456 164 C 468 152, 464 134, 478 122 L 432 98 L 395 72 Z"
+              fill="url(#neighborGrad)" stroke="#C2B7A9" stroke-width="1.3"/>
+        <text x="498" y="135" font-size="10" fill="#8E8377" text-anchor="middle">瑞士</text>
+        <text x="498" y="147" font-size="8.5" fill="#9E9387" text-anchor="middle">SWITZERLAND</text>
+        <text x="508" y="235" font-size="10" fill="#8E8377" text-anchor="middle">義大利</text>
+        <text x="508" y="247" font-size="8.5" fill="#9E9387" text-anchor="middle">ITALY</text>
+
+        <!-- 伊比利半島（西班牙與葡萄牙北部真實海岸線） -->
+        <g filter="url(#coastShadow)">
+          <path d="M 52 292 C 75 288, 102 284, 132 285 C 162 286, 192 289, 218 292 C 228 293, 236 291, 244 293
+                   L 365 328 C 355 344, 342 362, 326 378 C 314 390, 305 402, 298 416
+                   L 44 416 C 46 385, 48 352, 46 322 C 45 308, 48 298, 52 292 Z"
+                fill="url(#landGrad)" stroke="#9E8F7E" stroke-width="1.6"/>
+        </g>
+
+        <!-- 法國本土高擬真海岸線（含布列塔尼半島、諾曼第、吉倫特河口、地中海獅灣、蔚藍海岸） -->
+        <g filter="url(#coastShadow)">
+          <path d="M 336 42
+                   L 365 36 L 395 72 L 432 98 L 478 122
+                   C 464 134, 468 152, 456 164
+                   C 444 176, 440 192, 452 202
+                   C 464 212, 470 226, 462 238
+                   C 452 252, 458 267, 472 280
+                   C 455 286, 434 294, 416 296
+                   C 398 298, 382 296, 368 304
+                   C 358 310, 356 320, 365 328
+                   L 244 293
+                   C 242 272, 245 246, 248 220
+                   C 250 206, 244 198, 248 192
+                   C 252 198, 256 205, 254 214
+                   C 254 196, 244 178, 232 162
+                   C 220 146, 206 138, 190 135
+                   C 172 132, 155 128, 146 120
+                   C 142 114, 146 106, 156 103
+                   C 172 99, 192 102, 208 106
+                   C 218 108, 224 102, 222 92
+                   C 220 82, 216 74, 222 70
+                   C 230 68, 242 78, 256 80
+                   C 272 82, 288 74, 304 64
+                   C 318 56, 328 48, 336 42 Z"
+                fill="url(#landGrad)" stroke="#948473" stroke-width="1.7"/>
+        </g>
+
+        <!-- 科西嘉島 (Corsica) -->
+        <path d="M 505 316 C 511 312, 516 322, 515 336 C 514 348, 508 356, 503 352 C 499 346, 500 324, 505 316 Z"
+              fill="url(#landGrad)" stroke="#948473" stroke-width="1.3"/>
+
+        <!-- 地形山脈陰影（阿爾卑斯山脈、中央高原、庇里牛斯山脈） -->
+        <g filter="url(#mountainBlur)" opacity="0.45">
+          <!-- 阿爾卑斯山脈 (Alps) -->
+          <path d="M 435 195 Q 458 215 468 255 Q 448 265 426 235 Z" fill="#C4B39D"/>
+          <!-- 法國中央高原 (Massif Central) -->
+          <ellipse cx="348" cy="218" rx="34" ry="28" fill="#C9B9A5"/>
+          <!-- 庇里牛斯山脈 (Pyrenees) -->
+          <path d="M 246 293 Q 305 304 362 325 Q 302 316 244 301 Z" fill="#B5A18B"/>
+          <!-- 坎塔布連山脈 (西班牙北部) -->
+          <path d="M 110 296 Q 175 298 235 304 Q 175 308 110 303 Z" fill="#C4B39D"/>
+        </g>
+
+        <!-- 主要水系（索恩河-隆河水系 & 埃布羅河） -->
+        <!-- 索恩河與隆河 (Saône & Rhône) -->
+        <path d="M 412 138 C 408 158, 405 174, 404 190 C 403 215, 401 245, 396 286"
+              fill="none" stroke="#5A96C2" stroke-width="2.1" stroke-linecap="round"/>
+        <text x="382" y="236" font-size="9.5" fill="#467FA8" font-style="italic" transform="rotate(-84 382 236)">Rhône 隆河</text>
+
+        <!-- 西班牙埃布羅河 (Ebro River - 流經 Rioja) -->
+        <path d="M 192 298 C 218 308, 255 324, 295 344 C 318 355, 336 364, 348 368"
+              fill="none" stroke="#5A96C2" stroke-width="1.9" stroke-linecap="round"/>
+        <text x="268" y="346" font-size="9" fill="#467FA8" font-style="italic" transform="rotate(24 268 346)">Ebro 埃布羅河</text>
+
+        <!-- 國家與海域文字標註 -->
+        <text x="315" y="138" font-size="13" font-weight="bold" fill="#7D6E5D" letter-spacing="3" text-anchor="middle">FRANCE</text>
+        <text x="315" y="152" font-size="10" fill="#948473" text-anchor="middle">法國</text>
+
+        <text x="175" y="365" font-size="13" font-weight="bold" fill="#7D6E5D" letter-spacing="3" text-anchor="middle">SPAIN</text>
+        <text x="175" y="379" font-size="10" fill="#948473" text-anchor="middle">西班牙</text>
+
+        <text x="148" y="218" font-size="11" fill="#4E7C9E" font-style="italic" text-anchor="middle">比斯開灣</text>
+        <text x="148" y="231" font-size="9" fill="#638FAD" text-anchor="middle">Bay of Biscay</text>
+
+        <text x="432" y="352" font-size="11" fill="#4E7C9E" font-style="italic" text-anchor="middle">地中海</text>
+        <text x="432" y="365" font-size="9" fill="#638FAD" text-anchor="middle">Mediterranean Sea</text>
+
+        <text x="304" y="314" font-size="9" fill="#7D6B58" font-weight="bold" transform="rotate(16 304 314)" text-anchor="middle">庇里牛斯山脈</text>
+
+        <!-- 城市參考點：巴黎 & 里昂 -->
+        <circle cx="332" cy="96" r="3" fill="#6E6256"/>
+        <text x="324" y="93" font-size="9.5" fill="#5A5046" text-anchor="end">巴黎 Paris</text>
+
+        <circle cx="404" cy="193" r="3.2" fill="#4A0E17"/>
+        <text x="396" y="196" font-size="9.5" font-weight="bold" fill="#4A0E17" text-anchor="end">里昂 Lyon</text>
+
+        <!-- ==================== 三大產區精準定位與說明卡片（支援雙向懸停連動） ==================== -->
+
+        <!-- 產區 1: 法國薄酒萊 (Beaujolais - 位於索恩河西岸、里昂正北方) -->
+        <g class="map-region-group" data-region="beaujolais">
+          <path class="map-zone" d="M 397 166 C 402 165, 405 174, 403 186 C 398 187, 395 176, 397 166 Z"
+                fill="#722F37" opacity="0.75" stroke="#4A0E17" stroke-width="1"/>
+          <circle class="map-pulse" cx="400" cy="176" r="11" fill="#722F37" opacity="0.22"/>
+          <circle cx="400" cy="176" r="5" fill="#722F37" stroke="#FFF" stroke-width="1.8"/>
+          <polyline class="map-connector" points="405,174 525,86 555,86" fill="none" stroke="#722F37" stroke-width="1.8" stroke-dasharray="4 3"/>
+
+          <g class="map-mini-card" filter="url(#cardShadow)">
+            <rect class="map-card-bg" x="555" y="42" width="320" height="86" rx="10" fill="#FFF" stroke="#722F37" stroke-width="2"/>
+            <rect x="555" y="42" width="8" height="86" rx="4" fill="#722F37"/>
+            <text x="574" y="65" font-size="13" font-weight="bold" fill="#722F37">① 法國薄酒萊 (Beaujolais)</text>
+            <text x="574" y="84" font-size="11" fill="#333">座標：勃根地南端、里昂正北方｜品種：加美 (Gamay)</text>
+            <text x="574" y="102" font-size="10.5" fill="#5A5A5A">CM 工藝發源地，花崗岩山丘孕育極致鮮活花果香</text>
+            <text x="574" y="118" font-size="10" font-weight="bold" fill="#8E354A">代表：薄酒萊新酒 Nouveau、十大特級村 Cru</text>
+          </g>
+        </g>
+
+        <!-- 產區 2: 法國隆河谷 (Rhône Valley - 里昂以南沿隆河兩岸延伸) -->
+        <g class="map-region-group" data-region="rhone">
+          <path class="map-zone" d="M 401 200 C 406 200, 407 232, 402 262 C 396 262, 397 232, 401 200 Z"
+                fill="#7B1FA2" opacity="0.65" stroke="#4A148C" stroke-width="1"/>
+          <circle class="map-pulse" cx="402" cy="226" r="11" fill="#7B1FA2" opacity="0.22"/>
+          <circle cx="402" cy="226" r="5" fill="#7B1FA2" stroke="#FFF" stroke-width="1.8"/>
+          <polyline class="map-connector" points="407,226 525,208 555,208" fill="none" stroke="#7B1FA2" stroke-width="1.8" stroke-dasharray="4 3"/>
+
+          <g class="map-mini-card" filter="url(#cardShadow)">
+            <rect class="map-card-bg" x="555" y="164" width="320" height="86" rx="10" fill="#FFF" stroke="#7B1FA2" stroke-width="2"/>
+            <rect x="555" y="164" width="8" height="86" rx="4" fill="#7B1FA2"/>
+            <text x="574" y="187" font-size="13" font-weight="bold" fill="#6A1B9A">② 法國隆河谷 (Rhône Valley)</text>
+            <text x="574" y="206" font-size="11" fill="#333">座標：里昂以南沿隆河兩岸｜品種：希哈、格那希</text>
+            <text x="574" y="224" font-size="10.5" fill="#5A5A5A">自然派酒莊愛用整串 CM 軟化單寧、放大紫羅蘭香</text>
+            <text x="574" y="240" font-size="10" font-weight="bold" fill="#7B1FA2">特色：多汁黑莓、白胡椒與絲滑無澀感酒體</text>
+          </g>
+        </g>
+
+        <!-- 產區 3: 西班牙里奧哈 (Rioja Alavesa - 西班牙北部埃布羅河上游) -->
+        <g class="map-region-group" data-region="rioja">
+          <ellipse class="map-zone" cx="212" cy="306" rx="13" ry="6" transform="rotate(15 212 306)"
+                   fill="#C59B27" opacity="0.8" stroke="#8D6200" stroke-width="1"/>
+          <circle class="map-pulse" cx="212" cy="306" r="11" fill="#C59B27" opacity="0.28"/>
+          <circle cx="212" cy="306" r="5" fill="#B27D00" stroke="#FFF" stroke-width="1.8"/>
+          <polyline class="map-connector" points="217,308 525,330 555,330" fill="none" stroke="#B27D00" stroke-width="1.8" stroke-dasharray="4 3"/>
+
+          <g class="map-mini-card" filter="url(#cardShadow)">
+            <rect class="map-card-bg" x="555" y="286" width="320" height="86" rx="10" fill="#FFF" stroke="#B27D00" stroke-width="2"/>
+            <rect x="555" y="286" width="8" height="86" rx="4" fill="#B27D00"/>
+            <text x="574" y="309" font-size="13" font-weight="bold" fill="#8D6200">③ 西班牙里奧哈 (Rioja Alavesa)</text>
+            <text x="574" y="328" font-size="11" fill="#333">座標：西班牙北部埃布羅河上游｜田帕尼優</text>
+            <text x="574" y="346" font-size="10.5" fill="#5A5A5A">傳統 Joven 年輕酒款自古採用整串二氧化碳浸製</text>
+            <text x="574" y="362" font-size="10" font-weight="bold" fill="#9E6F00">當地稱 Maceración Carbónica，充滿甘草與紅莓香</text>
+          </g>
+        </g>
+
+        <!-- 比例尺與指北針 -->
+        <g transform="translate(55, 385)">
+          <line x1="0" y1="10" x2="65" y2="10" stroke="#5A5046" stroke-width="1.8"/>
+          <line x1="0" y1="6" x2="0" y2="14" stroke="#5A5046" stroke-width="1.8"/>
+          <line x1="65" y1="6" x2="65" y2="14" stroke="#5A5046" stroke-width="1.8"/>
+          <text x="32" y="4" font-size="9" fill="#5A5046" text-anchor="middle">約 200 km</text>
+        </g>
+        <g transform="translate(862, 396)">
+          <circle cx="0" cy="0" r="12" fill="#FFF" stroke="#948473" stroke-width="1.2"/>
+          <polygon points="0,-8 3,2 0,0 -3,2" fill="#722F37"/>
+          <text x="0" y="-14" font-size="8.5" font-weight="bold" fill="#5A5046" text-anchor="middle">N</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="grid-3">
+      <div class="info-box region-card" data-region="beaujolais">
+        <span class="tag-region" style="background: #722F37;">① 法國薄酒萊 Beaujolais</span>
+        <h3>加美（Gamay）</h3>
+        <p>CM 的發源地與教科書。<strong>薄酒萊新酒（Nouveau）</strong>採全 CM 或半 CM 追求極致香蕉糖果香；<strong>村莊級與十大特級村（Cru，如 Morgon、Fleurie）</strong>則常混合半 CM 與傳統浸皮，兼具花果香與陳年骨架。</p>
+      </div>
+      <div class="info-box region-card" data-region="rhone">
+        <span class="tag-region" style="background: #7B1FA2;">② 法國隆河谷 Rhône Valley</span>
+        <h3>希哈（Syrah）與格那希</h3>
+        <p>許多自然派釀酒師喜歡以 CM 處理北隆河的 Syrah 或南隆河的 Grenache，軟化厚重單寧，引出爆炸性的紫羅蘭花香、白胡椒與多汁黑莓風味。</p>
+      </div>
+      <div class="info-box region-card" data-region="rioja">
+        <span class="tag-region" style="background: #B27D00;">③ 西班牙里奧哈 Rioja Alavesa</span>
+        <h3>田帕尼優（Tempranillo）</h3>
+        <p>當地傳統年輕酒款（Joven）自古便使用二氧化碳浸製法（西班牙語稱 <em>Maceración Carbónica</em>），能馴服 Tempranillo 的單寧，釀出充滿紫羅蘭、甘草與鮮活紅莓香氣的易飲紅酒。</p>
+      </div>
+    </div>
+
+    <!-- 薄酒萊新酒節專題介紹框 -->
+    <div class="festival-box">
+      <div class="festival-header">
+        <div class="festival-title">🎉 全球葡萄酒界的年度盛事：薄酒萊新酒節（Beaujolais Nouveau Day）</div>
+        <div class="festival-date">每年 11 月第 3 個星期四</div>
+      </div>
+      <p>二氧化碳浸製法之所以能風靡全世界，最大推手便是每年<strong>11 月第三個星期四午夜 00:01 全球同步開瓶</strong>的「薄酒萊新酒節」。這不僅是法規嚴格保護的釀造奇蹟，更是葡萄酒行銷史上最成功的文化現象：</p>
+      <div class="grid-2" style="margin-top: 10px;">
+        <div>
+          <p style="margin-bottom: 8px;">• <strong>從採收到開瓶僅約 6–8 週</strong>：葡萄於 8 月底至 9 月採收後，透過二氧化碳浸製法快速完成發酵、澄清與裝瓶，讓消費者能在同年 11 月就喝到「當年採收」的第一批新鮮葡萄酒。</p>
+          <p style="margin-bottom: 0;">• <strong>法定開瓶禁令（Le Beaujolais Nouveau est arrivé!）</strong>：法國政府自 1951 年起立法規定新酒的統一發售日（1985 年起固定為 11 月第 3 個週四），午夜一到，全球酒吧與餐廳便會高喊 <em>「Le Beaujolais Nouveau est arrivé!（薄酒萊新酒來了！）」</em> 舉杯慶祝豐收。</p>
+        </div>
+        <div>
+          <p style="margin-bottom: 8px;">• <strong>時區優勢與空運競速</strong>：因為日本與台灣位於東亞時區，比法國本土更早迎來星期四午夜，每年 11 月初各大航空公司都會啟動「新酒空運專機」，讓亞洲成為全球最早開瓶喝到當年薄酒萊新酒的地區。</p>
+          <p style="margin-bottom: 0;">• <strong>酒標設計與派對精神</strong>：不同於傳統法國酒莊莊重典雅的酒標，薄酒萊新酒每年都會換上色彩繽紛、充滿藝術插畫感的新設計，象徵「不需嚴肅品評、只需輕鬆乾杯」的社交派對文化。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box">
+      <strong>🍷 侍酒與餐桌搭配實戰：</strong><br>
+      • <strong>適飲溫度（12°C–14°C）</strong>：微冰鎮飲用最能鎖住清脆果香並維持爽口度；溫度過高會讓酯類的糖果甜膩感顯得鬆散。<br>
+      • <strong>杯型選擇</strong>：建議使用<strong>標準波爾多杯或鬱金香型白酒杯</strong>集中高揮發性酯類香氣，避免杯肚過大的勃根地杯導致果香散失過快。<br>
+      • <strong>餐酒搭配</strong>：極低單寧不怕與海鮮產生金屬苦味，高果香與柔和酸度則能化解油脂，極度適合搭配<strong>台式熱炒、烤雞、鴨胸、火腿冷肉盤、微辣料理</strong>。
+    </div>
+  </div>
+
+  <!-- 第八部分：延伸章節 — 精品咖啡中的二氧化碳浸製處理法 -->
+  <div id="sec-8" class="section-card coffee-theme">
+    <div class="section-title">
+      <span>八、延伸專題：二氧化碳浸製法在精品咖啡的跨界應用</span>
+      <span class="badge">Coffee Carbonic Maceration</span>
+    </div>
+
+    <p>2015 年世界咖啡師大賽（WBC）冠軍 <strong>Sasa Sestic</strong> 受到葡萄酒釀造工藝的啟發，將二氧化碳浸製法正式引入精品咖啡生豆處理領域（Coffee Processing）。這項技術徹底顛覆了傳統水洗、日曬與蜜處理的風味邊界，成為現代實驗性處理法的核心基石。</p>
+
+    <!-- 咖啡 CM 流程圖解 -->
+    <div class="diagram-wrapper">
+      <svg viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="840" height="200" rx="14" fill="#FBF8F5" stroke="#D7C7B8" stroke-width="2"/>
+        <text x="430" y="36" font-size="14" font-weight="bold" fill="#3B2314" text-anchor="middle">精品咖啡二氧化碳浸製處理流程（以全果實 Whole Cherry 為例）</text>
+
+        <!-- Step 1 -->
+        <rect x="30" y="58" width="175" height="125" rx="10" fill="#FFF" stroke="#6F4E37" stroke-width="2"/>
+        <text x="117" y="82" font-size="12.5" font-weight="bold" fill="#3B2314" text-anchor="middle">1. 篩選完整咖啡櫻桃</text>
+        <text x="117" y="104" font-size="11" fill="#5A5A5A" text-anchor="middle">手工採摘全紅熟果</text>
+        <text x="117" y="122" font-size="11" fill="#5A5A5A" text-anchor="middle">浮選去除瑕疵與破皮果</text>
+        <text x="117" y="140" font-size="11" fill="#5A5A5A" text-anchor="middle">維持果皮完整（不去除果肉）</text>
+        <text x="117" y="164" font-size="10.5" font-weight="bold" fill="#6F4E37" text-anchor="middle">亦可去皮帶果膠進行 CM</text>
+
+        <path d="M 210 120 L 238 120" stroke="#6F4E37" stroke-width="3" marker-end="url(#arrow-coffee)"/>
+
+        <!-- Step 2 -->
+        <rect x="243" y="58" width="195" height="125" rx="10" fill="#F7F1EB" stroke="#6F4E37" stroke-width="2"/>
+        <text x="340" y="82" font-size="12.5" font-weight="bold" fill="#3B2314" text-anchor="middle">2. 密閉不鏽鋼桶充入 CO₂</text>
+        <text x="340" y="104" font-size="11" fill="#333" text-anchor="middle">排空桶內氧氣，單向閥排氣</text>
+        <text x="340" y="122" font-size="11" fill="#333" text-anchor="middle">果肉內部啟動細胞內代謝</text>
+        <text x="340" y="140" font-size="11" fill="#333" text-anchor="middle">低溫拉長發酵（15°C–22°C）</text>
+        <text x="340" y="164" font-size="10.5" font-weight="bold" fill="#C59B27" text-anchor="middle">發酵時間常達 3 至 7 天以上</text>
+
+        <path d="M 443 120 L 471 120" stroke="#6F4E37" stroke-width="3" marker-end="url(#arrow-coffee)"/>
+
+        <!-- Step 3 -->
+        <rect x="476" y="58" width="175" height="125" rx="10" fill="#FFF" stroke="#6F4E37" stroke-width="2"/>
+        <text x="563" y="82" font-size="12.5" font-weight="bold" fill="#3B2314" text-anchor="middle">3. 緩慢乾燥定型</text>
+        <text x="563" y="104" font-size="11" fill="#5A5A5A" text-anchor="middle">出桶後移至非洲式高架床</text>
+        <text x="563" y="122" font-size="11" fill="#5A5A5A" text-anchor="middle">低溫陰乾或控溫乾燥</text>
+        <text x="563" y="140" font-size="11" fill="#5A5A5A" text-anchor="middle">防止高糖分果膠過度發霉</text>
+        <text x="563" y="164" font-size="10.5" font-weight="bold" fill="#6F4E37" text-anchor="middle">含水率降至 10.5%–11.5%</text>
+
+        <path d="M 656 120 L 684 120" stroke="#6F4E37" stroke-width="3" marker-end="url(#arrow-coffee)"/>
+
+        <!-- Step 4 -->
+        <rect x="689" y="58" width="145" height="125" rx="10" fill="#6F4E37" stroke="#3B2314" stroke-width="2"/>
+        <text x="761" y="82" font-size="12.5" font-weight="bold" fill="#FFF" text-anchor="middle">4. 典型杯測風味</text>
+        <text x="761" y="106" font-size="11" fill="#F7F1EB" text-anchor="middle">• 草莓醬、紅酒感</text>
+        <text x="761" y="125" font-size="11" fill="#F7F1EB" text-anchor="middle">• 香蕉、熱帶水果</text>
+        <text x="761" y="144" font-size="11" fill="#F7F1EB" text-anchor="middle">• 肉桂、泡泡糖甜感</text>
+        <text x="761" y="166" font-size="10.5" font-weight="bold" fill="#FFE082" text-anchor="middle">絲滑醇厚度與高乾淨度</text>
+
+        <defs>
+          <marker id="arrow-coffee" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#6F4E37"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="grid-2">
+      <div class="info-box">
+        <h3>🔬 與葡萄酒 CM 的核心共通點</h3>
+        <p>咖啡櫻桃（Coffee Cherry）同樣擁有外果皮與富含糖分及蘋果酸的果肉（Mucilage）。在充滿 <span class="chem-formula">CO₂</span> 的無氧密閉桶中，果肉內部啟動細胞內無氧代謝，同樣會<strong>大量消耗尖銳的蘋果酸</strong>，並生成高濃度的<strong>乙酸異戊酯（香蕉味）與肉桂酸乙酯（草莓/肉桂味）</strong>。這些香氣小分子滲透進咖啡生豆的細胞壁中，在烘焙後轉化為極具辨識度的酒香與熱帶果醬調性。</p>
+      </div>
+      <div class="info-box">
+        <h3>🌡️ 葡萄酒 vs 咖啡 CM 的關鍵操作差異</h3>
+        <p>兩者最大的差異在於<strong>「發酵溫度」與「最終目的」</strong>：<br>
+        • <strong>葡萄酒（30°C–35°C）</strong>：追求快速產生酒精並讓果皮破裂。<br>
+        • <strong>精品咖啡（常控溫於 15°C–22°C 低溫）</strong>：咖啡處理<strong>不希望產生過多酒精或把果皮撐破</strong>，而是利用低溫延長無氧浸漬時間（常達 72–168 小時），讓果膠層的酯類與有機酸緩慢滲透進生豆內部，同時抑制雜菌產生刺鼻醋酸味。</p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 24%;">比較項目</th>
+          <th style="width: 38%;">葡萄酒二氧化碳浸製法</th>
+          <th style="width: 38%;">精品咖啡二氧化碳浸製處理法</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>原料形態</strong></td>
+          <td>整串完整未破皮的釀酒葡萄</td>
+          <td>完整全紅熟咖啡櫻桃（Whole Cherry），或去皮帶果膠豆（Pulp）</td>
+        </tr>
+        <tr>
+          <td><strong>核心發酵目標</strong></td>
+          <td>啟動細胞內發酵產生約 2% 酒精，撐破果皮後由酵母完成釀酒</td>
+          <td>在低溫無氧下減緩酵母暴衝，讓果肉生成的<strong>酯類香氣前驅物滲入生豆</strong></td>
+        </tr>
+        <tr>
+          <td><strong>控制溫度與時間</strong></td>
+          <td>較高溫（<strong>30°C–35°C</strong>），約 5–15 天</td>
+          <td>常採低溫控溫（<strong>15°C–22°C</strong>），約 3–7 天（視海拔與糖度調整）</td>
+        </tr>
+        <tr>
+          <td><strong>後續處理與變體</strong></td>
+          <td>壓榨分離自流汁與壓榨汁，完成酒精發酵與裝瓶</td>
+          <td>出桶後可接續<strong>水洗（CM Washed）、蜜處理（CM Honey）或日曬（CM Natural）</strong>乾燥</td>
+        </tr>
+        <tr>
+          <td><strong>感官風味標誌</strong></td>
+          <td>低單寧、圓潤酸度、香蕉水、草莓軟糖、泡泡糖香氣</td>
+          <td>極高乾淨度、絲滑口感（降低澀感）、紅酒韻、草莓果醬、肉桂與熱帶水果香</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="coffee-callout">
+      <strong>☕ 沖煮與烘焙觀察小提示：</strong>採用二氧化碳浸製處理的精品咖啡豆，因為生豆在發酵過程中經歷了細胞壁軟化與高濃度有機酸/酯類滲透，通常在烘焙時<strong>梅納反應與焦糖化速度較快</strong>（豆色發展較深），沖煮時也建議<strong>水溫略降（約 89°C–91°C）</strong>，以避免過度萃取發酵帶來的厚重酒感，更能展現清亮優雅的草莓、紫羅蘭與熱帶水果層次。
+    </div>
+  </div>
+
+  <footer>
+    葡萄酒釀造科學與精品咖啡處理工藝跨界圖解指南 &bull; Carbonic Maceration Complete Technical Guide
+  </footer>
+
+</div>
+
+<!-- 右下角回到頂部浮動按鈕 -->
+<button id="backToTopBtn" title="回到最上方" aria-label="回到最上方">
+  <svg viewBox="0 0 24 24">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+<script>
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  });
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  // 第七節：產區地圖小卡與下方產區卡片雙向連動
+  const regionMap = document.getElementById("europeRegionMap");
+  const mapGroups = document.querySelectorAll(".map-region-group");
+  const regionCards = document.querySelectorAll(".region-card");
+
+  function setActiveRegion(regionKey) {
+    if (!regionKey) {
+      regionMap.classList.remove("has-active-region");
+      mapGroups.forEach(g => g.classList.remove("is-active"));
+      regionCards.forEach(c => c.classList.remove("is-active"));
+      return;
+    }
+
+    regionMap.classList.add("has-active-region");
+    mapGroups.forEach(g => {
+      g.classList.toggle("is-active", g.dataset.region === regionKey);
+    });
+    regionCards.forEach(c => {
+      c.classList.toggle("is-active", c.dataset.region === regionKey);
+    });
+  }
+
+  mapGroups.forEach(group => {
+    group.addEventListener("mouseenter", () => setActiveRegion(group.dataset.region));
+    group.addEventListener("mouseleave", () => setActiveRegion(null));
+  });
+
+  regionCards.forEach(card => {
+    card.addEventListener("mouseenter", () => setActiveRegion(card.dataset.region));
+    card.addEventListener("mouseleave", () => setActiveRegion(null));
+  });
+</script>
+
+</body>
+</html>
